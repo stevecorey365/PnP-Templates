@@ -1,0 +1,289 @@
+{
+	"documentationLink": "https://microsoft-search.github.io/pnp-modern-search/",
+	"selectedLayoutKey": "ResultsCustom",
+	"resultTypes": [],
+	"dataSourceProperties": {
+		"queryTemplate": "*{inputQueryText}* ContentTypeId:0x010100EBF691737191164AAFF6509A251F822F* DepartmentId:deeb737a-7904-41fc-8da8-db0ae13c0d50",
+		"enableQueryRules": false,
+		"enableLocalization": false,
+		"refinementFilters": "",
+		"selectedProperties": [
+			"Title",
+			"Path",
+			"DefaultEncodingURL",
+			"FileType",
+			"HitHighlightedSummary",
+			"HitHighlightedProperties",
+			"AuthorOWSUSER",
+			"owstaxidmetadataalltagsinfo",
+			"Created",
+			"UniqueID",
+			"NormSiteID",
+			"NormWebID",
+			"NormListID",
+			"NormUniqueID",
+			"ContentTypeId",
+			"contentclass",
+			"UserName",
+			"JobTitle",
+			"WorkPhone",
+			"SPSiteUrl",
+			"SiteTitle",
+			"CreatedBy",
+			"HtmlFileType",
+			"SiteLogo",
+			"ClickStreamClickedCount"
+		],
+		"resultSourceId": "8413cd39-2156-4e00-b54d-11efd9abdb89",
+		"hitHighlightedProperties": "",
+		"trimDuplicates": false,
+		"sortList": [
+			{
+				"uniqueId": "c43c8c6f-f4ac-48ed-b3dd-963a84f6b7d2",
+				"sortField": "ClickStreamClickedCount",
+				"isDefaultSort": true,
+				"sortDirection": 2,
+				"isUserSort": null,
+				"sortFieldDisplayName": null,
+				"sortIdx": 1
+			}
+		]
+	},
+	"queryTextSource": 1,
+	"layoutProperties": {
+		"documentCardFields": [
+			{
+				"name": "Title",
+				"field": "title",
+				"value": "{{slot item @root.slots.Title}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Location",
+				"field": "location",
+				"value": "<a style=\"color:{{@root.theme.palette.themePrimary}};font-weight:600;font-family:'{{@root.theme.fonts.small.fontFamily}}'\" href=\"{{SPSiteUrl}}\">{{SiteTitle}}</a>",
+				"useHandlebarsExpr": true,
+				"supportHtml": true
+			},
+			{
+				"name": "Tags",
+				"field": "tags",
+				"value": "<style>\n\t.tags {\n\t\tdisplay: flex;\n\t\talign-items: center;\n\t }\n\t.tags i { \n\t\tmargin-right: 5px; \n\t}\n\t.tags div {\n\t\tdisplay: flex;\n\t\tflex-wrap: wrap; \n\t\tjustify-content: flex-end; \n\t}\n\t.tags div span {\n\t\ttext-decoration: underline; \n\t\tmargin-right: auto; \n\t}\n </style>\n\n{{#if (slot item @root.slots.Tags)}}\n\t<div class=\"tags\">\n\t\t<pnp-icon data-name=\"Tag\" aria-hidden=\"true\" data-theme-variant=\"{{JSONstringify @root.theme}}\"></pnp-icon>\n\t\t<div>\n\t\t\t{{#each (split (slot item @root.slots.Tags) \",\") as |tag| }}\n\t\t\t\t<span>{{trim tag}}</span>\n\t\t\t{{/each}}\n\t\t</div>\n\t</div>\n{{/if}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": true
+			},
+			{
+				"name": "Preview Image",
+				"field": "previewImage",
+				"value": "{{slot item @root.slots.PreviewImageUrl}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Preview Url",
+				"field": "previewUrl",
+				"value": "{{slot item @root.slots.PreviewUrl}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Date",
+				"field": "date",
+				"value": "{{getDate (slot item @root.slots.Date) 'LL'}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Url",
+				"field": "href",
+				"value": "{{slot item @root.slots.PreviewUrl}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Author",
+				"field": "author",
+				"value": "{{slot item @root.slots.Author}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Profile Image Url",
+				"field": "profileImage",
+				"value": "/_layouts/15/userphoto.aspx?size=L&username={{getUserEmail (slot item @root.slots.UserEmail)}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "File Extension",
+				"field": "fileExtension",
+				"value": "{{slot item @root.slots.FileType}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			},
+			{
+				"name": "Is Folder",
+				"field": "isContainer",
+				"value": "{{slot item @root.slots.IsFolder}}",
+				"useHandlebarsExpr": true,
+				"supportHtml": false
+			}
+		],
+		"isCompact": false,
+		"showFileIcon": true,
+		"enablePreview": false,
+		"preferedCardNumberPerRow": 3,
+		"columnSizePercentage": 33
+	},
+	"showSelectedFilters": false,
+	"showResultsCount": false,
+	"showBlankIfNoResult": false,
+	"useMicrosoftGraphToolkit": false,
+	"enableTelemetry": true,
+	"itemSelectionProps": {
+		"allowItemSelection": false,
+		"selectionMode": "AsDataFilter",
+		"allowMulti": false,
+		"valuesOperator": "or"
+	},
+	"extensibilityLibraryConfiguration": [
+		{
+			"name": "Default extensibility library",
+			"enabled": true,
+			"id": "dc4f961b-dbe0-44b4-982d-5776bf99d015"
+		}
+	],
+	"queryModifierConfiguration": [],
+	"queryModifierProperties": {
+		"endWhenSuccessfull": false
+	},
+	"selectedVerticalKeys": [],
+	"useVerticals": false,
+	"paging": {
+		"itemsCountPerPage": 10,
+		"pagingRange": 5,
+		"showPaging": true,
+		"hideDisabled": true,
+		"hideFirstLastPages": false,
+		"hideNavigation": false,
+		"useNextLinks": false
+	},
+	"adaptiveCardsHostConfig": "{\n\t\"fontFamily\": \"Segoe UI, Helvetica Neue, sans-serif\"\n}",
+	"layoutRenderType": "Handlebars",
+	"dataSourceKey": "SharePointSearch",
+	"templateSlots": [
+		{
+			"slotName": "Title",
+			"slotField": "Title",
+			"sortIdx": 1
+		},
+		{
+			"slotName": "Path",
+			"slotField": "DefaultEncodingURL",
+			"sortIdx": 2
+		},
+		{
+			"slotName": "Summary",
+			"slotField": "HitHighlightedSummary",
+			"sortIdx": 3
+		},
+		{
+			"slotName": "FileType",
+			"slotField": "FileType",
+			"sortIdx": 4
+		},
+		{
+			"slotName": "PreviewImageUrl",
+			"slotField": "AutoPreviewImageUrl",
+			"sortIdx": 5
+		},
+		{
+			"slotName": "PreviewUrl",
+			"slotField": "AutoPreviewUrl",
+			"sortIdx": 6
+		},
+		{
+			"slotName": "Tags",
+			"slotField": "owstaxidmetadataalltagsinfo",
+			"sortIdx": 7
+		},
+		{
+			"slotName": "Date",
+			"slotField": "Created",
+			"sortIdx": 8
+		},
+		{
+			"slotName": "SiteId",
+			"slotField": "NormSiteID",
+			"sortIdx": 9
+		},
+		{
+			"slotName": "WebId",
+			"slotField": "NormWebID",
+			"sortIdx": 10
+		},
+		{
+			"slotName": "ListId",
+			"slotField": "NormListID",
+			"sortIdx": 11
+		},
+		{
+			"slotName": "ItemId",
+			"slotField": "NormUniqueID",
+			"sortIdx": 12
+		},
+		{
+			"slotName": "IsFolder",
+			"slotField": "ContentTypeId",
+			"sortIdx": 13
+		},
+		{
+			"slotName": "contentclass",
+			"slotField": "contentclass",
+			"sortIdx": 14
+		},
+		{
+			"slotName": "PersonQuery",
+			"slotField": "AADObjectID",
+			"sortIdx": 15
+		},
+		{
+			"slotName": "UserDisplayName",
+			"slotField": "Title",
+			"sortIdx": 16
+		},
+		{
+			"slotName": "UserEmail",
+			"slotField": "UserName",
+			"sortIdx": 17
+		},
+		{
+			"uniqueId": "45bf2a83-051d-4e0f-83c2-d402df74f333",
+			"slotName": "ViewCount",
+			"slotField": "ViewCount",
+			"sortIdx": 18
+		}
+	],
+	"defaultQueryText": "*",
+	"useInputQueryText": true,
+	"useDefaultQueryText": true,
+	"inlineTemplateContent": "<content id=\"data-content\">\n\n    <style>\n        /* Assign the correct size % ratio according to the number of wanted cards on a single row. We use flexbox instead of static grid to deal with SharePoint canvas sections*/\n        .template--card {\n            flex-grow: 1;\n            flex-shrink: 1;\n            min-width: 206px; /* Min width of the Office UI Fabric document card */\n            flex-basis: {{@root.properties.layoutProperties.columnSizePercentage}}%;\n        }\n        .ms-Image {\n            height: 200px;\n            overflow: visible;\n        }\n        .ms-Image img {\n            left: auto;\n            top: auto;\n            transform: none;\n        }\n        .ms-DocumentCardPreview {\n            height: 200px;\n        }\n    </style>\n\n    <div class=\"template\">\n\n        {{#if @root.properties.showSelectedFilters}}\n            <pnp-selectedfilters \n                data-filters=\"{{JSONstringify filters.selectedFilters 2}}\" \n                data-filters-configuration=\"{{JSONstringify filters.filtersConfiguration 2}}\" \n                data-instance-id=\"{{filters.instanceId}}\" \n                data-operator=\"{{filters.filterOperator}}\"\n                data-theme-variant=\"{{JSONstringify @root.theme}}\"\n            >\n            </pnp-selectedfilters>\n        {{/if}}\n       \n        <div class=\"template--header\">\n            {{#if @root.properties.showResultsCount}}\n                <div class=\"template--resultCount\">\n                    <label class=\"ms-fontWeight-semibold\">{{getCountMessage @root.data.totalItemsCount @root.inputQueryText}}</label>\n                </div>\n            {{/if}}\n\n            <div class=\"template--sort\">\n                <pnp-sortfield \n                    data-fields=\"{{JSONstringify @root.properties.dataSourceProperties.sortList}}\" \n                    data-default-selected-field=\"{{sort.selectedSortFieldName}}\" \n                    data-default-direction=\"{{sort.selectedSortDirection}}\"\n                    data-theme-variant=\"{{JSONstringify @root.theme}}\">\n                </pnp-sortfield>    \n            </div>\n        </div>\n\n        <div class=\"template--cardContainer\">\n            {{#each data.items as |item|}}    \n            \n                {{#> resultTypes item=item}}\n                    <pnp-documentcard class=\"template--card\" \n                        data-ui-test-id=\"resultCard\" \n                        data-item=\"{{JSONstringify item}}\" \n                        data-fields-configuration=\"{{JSONstringify @root.properties.layoutProperties.documentCardFields}}\" \n                        data-enable-preview=\"{{@root.properties.layoutProperties.enablePreview}}\" \n                        data-show-file-icon=\"{{@root.properties.layoutProperties.showFileIcon}}\" \n                        data-is-compact=\"{{@root.properties.layoutProperties.isCompact}}\" \n                        data-context=\"{{JSONstringify @root}}\"\n                        data-instance-id=\"{{@root.instanceId}}\"\n                        data-theme-variant=\"{{JSONstringify @root.theme}}\"\n                        data-allow-item-selection=\"{{@root.properties.itemSelectionProps.allowItemSelection}}\"\n                        data-item-key=\"{{@root.paging.currentPageNumber}}{{@index}}\"                     \n                        data-selected-keys=\"{{JSONstringify @root.selectedKeys}}\"\n                        data-index=\"{{@index}}\"\n                        >\n                    </pnp-documentcard>\n                {{/resultTypes}}\n\n            {{/each}}\n\n            <!-- Generate fake items to correctly align cards on rows using flexbox -->\n            {{#times @root.properties.layoutProperties.preferedCardNumberPerRow}}\n                <pnp-documentcard \n                    class=\"template--card\" \n                    data-ui-test-id=\"fakeCard\"\n                    data-theme-variant=\"{{JSONstringify @root.theme}}\"\n                    style=\"visibility:hidden;height: 0;padding: 0\">\n                </pnp-documentcard>\n            {{/times}}\n        </div>\n\n        {{#if @root.properties.paging.showPaging}}\n\n            {{#gt @root.data.totalItemsCount @root.properties.paging.itemsCountPerPage}}\n                <pnp-pagination \n                    data-total-items=\"{{@root.data.totalItemsCount}}\" \n                    data-hide-first-last-pages=\"{{@root.properties.paging.hideFirstLastPages}}\"\n                    data-hide-disabled=\"{{@root.properties.paging.hideDisabled}}\"\n                    data-hide-navigation=\"{{@root.properties.paging.hideNavigation}}\"\n                    data-range=\"{{@root.properties.paging.pagingRange}}\" \n                    data-items-count-per-page=\"{{@root.properties.paging.itemsCountPerPage}}\" \n                    data-current-page-number=\"{{@root.paging.currentPageNumber}}\"\n                    data-theme-variant=\"{{JSONstringify @root.theme}}\"\n                >\n                </pnp-pagination>\n            {{/gt}}\n            \n        {{/if}}\n\n    </div>\n\n</content>\n\n<content id=\"placeholder-content\">   \n\n        <style>\n            /* Assign the correct size % ratio according to the number of wanted cards on a single row. We use flexbox instead of static grid to deal with SharePoint canvas sections*/\n            .template--card {\n                flex-grow: 1;\n                flex-shrink: 1;\n                min-width: 206px; /* Min width of the Office UI Fabric document card */\n                flex-basis: {{@root.properties.layoutProperties.columnSizePercentage}}%;\n            }    \n        </style>\n\n    <div class=\"placeholder\">\n\n        {{!-- #if showResultsCount --}}\n        <div class=\"template--resultCount\">\n            <span class=\"placeholder--shimmer placeholder--line\" style=\"width: 20%\"></span>\n        </div>\n        {{!-- /if --}}\n        <div class=\"template--cardContainer\">\n\n            {{#times @root.properties.paging.itemsCountPerPage}}\n                <pnp-documentcardshimmers class=\"template--card\" \n                    data-ui-test-id=\"fakeCard\"\n                    data-theme-variant=\"{{JSONstringify @root.theme}}\"\n                    data-is-compact=\"{{@root.properties.layoutProperties.isCompact}}\">\n                </pnp-documentcardshimmers>\n            {{/times}}\n\n            <!-- Generate fake items to correctly align cards on rows using flexbox -->\n            {{#times @root.properties.layoutProperties.preferedCardNumberPerRow}}\n                <pnp-documentcard class=\"template--card\" \n                    data-ui-test-id=\"fakeCard\"\n                    data-theme-variant=\"{{JSONstringify @root.theme}}\"\n                    style=\"visibility:hidden;height: 0;padding: 0\">\n                </pnp-documentcard>\n            {{/times}}\n        </div>\n\n    </div>\n</content>",
+	"externalTemplateUrl": "",
+	"queryText": {
+		"__type": "DynamicProperty",
+		"reference": {
+			"_reference": "WebPart.544c1372-7e5a-49ec-8db6-812f76c375f2.dcab2962-ed9d-49dd-8cd5-0df603c0852d:pnpSearchBoxWebPart",
+			"_sourceId": "WebPart.544c1372-7e5a-49ec-8db6-812f76c375f2.dcab2962-ed9d-49dd-8cd5-0df603c0852d",
+			"_property": "pnpSearchBoxWebPart"
+		}
+	},
+	"filtersData": {
+		"__type": "DynamicProperty",
+		"value": {}
+	},
+	"selectedItemFieldValue": {
+		"__type": "DynamicProperty",
+		"value": ""
+	}
+}
